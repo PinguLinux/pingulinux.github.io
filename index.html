@@ -6,6 +6,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     </head>
     <body>
         <div id="bg-image"></div>
@@ -70,5 +71,34 @@
                 </div>
             </div>
         </div>
+
+       <div id="bg-image-credit">
+            Background image from the <a href="https://github.com/Render96/Render96ex">Render96 project</a>.
+       </div> 
+
+       <script>
+            window.onresize = function(event) {
+                $(function() {
+                    $('#bg-image-credit').show();
+                    
+                    
+                    if (collision(document.getElementById('content-opacity'), document.getElementById('bg-image-credit'))) {
+                        $('#bg-image-credit').hide();
+                    }
+                }); 
+            }  
+
+            function collision(el1, el2) {
+                var rect1 = el1.getBoundingClientRect();
+                var rect2 = el2.getBoundingClientRect();
+
+                return !(
+                    rect1.top > rect2.bottom ||
+                    rect1.right < rect2.left ||
+                    rect1.bottom < rect2.top ||
+                    rect1.left > rect2.right
+                );
+            }
+        </script>
     </body>
 </html>

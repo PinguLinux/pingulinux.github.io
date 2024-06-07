@@ -100,3 +100,20 @@ a:visited {
     width: 32px;
     margin-right: 18px;
 }
+
+#bg-image-credit {
+    color: black;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    bottom: 5px;
+    left: 5px;
+}
+
+#bg-image-credit a:link,
+#bg-image-credit a:visited {
+    color: inherit;
+    text-decoration: underline; 
+
+}
