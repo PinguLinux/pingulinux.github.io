@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AleFunky's place</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <div id="bg-image"></div>
+        
+        <div id="screen">
+            <div id="content-opacity">
+                <div id="content" class="inter-font">
+                    <h1 id="title-text">Super Ale Bros. Redux</h1>
+
+                    <h2 class="heading">Description</h2>
+                    
+                    <div class="heading-content">
+                        Welcome to Super Ale Bros. Redux, a heavily modified ASM hack of Super Mario Bros.
+                        <br><br>
+                        This hack features:
+                        <ul>
+                            <li>Backwards scrolling.</li>
+                            <li>P-Switches.</li>
+                            <li>On/Off blocks.</li>
+                            <li>Textboxes.</li>
+                            <li>32 main levels + 4 kaizo levels, totaling 9 worlds.</li>
+                            <li>Shell grabbing.</li>
+                            <li>Themed worlds.</li>
+                            <li>Saving.</li>
+                            <li>A pause menu.</li>
+                            <li>Shell-block interactions.</li>
+                            <li>Console compatible.</li>
+                            <li>And more!</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="heading">Images</h2>
+
+                    <div class="heading-content">
+                        <img src="img/1.png"><img src="img/2.png"><br>
+                        <img src="img/3.png"><img src="img/4.png">
+                    </div>
+
+                    <h2 class="heading">Download</h2>
+
+                    <div class="heading-content links">
+                        <a href="https://alefunky.dev/rompatcher/">
+                            Download now on the rom patcher
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <div id="bg-image-credit">
+            Background image from the <a href="https://github.com/Render96/Render96ex">Render96 project</a>.
+       </div> 
+
+       <script>
+            window.onresize = function(event) {
+                $(function() {
+                    $('#bg-image-credit').show();
+                    
+                    
+                    if (collision(document.getElementById('content-opacity'), document.getElementById('bg-image-credit'))) {
+                        $('#bg-image-credit').hide();
+                    }
+                }); 
+            }  
+
+            function collision(el1, el2) {
+                var rect1 = el1.getBoundingClientRect();
+                var rect2 = el2.getBoundingClientRect();
+
+                return !(
+                    rect1.top > rect2.bottom ||
+                    rect1.right < rect2.left ||
+                    rect1.bottom < rect2.top ||
+                    rect1.left > rect2.right
+                );
+            }
+        </script>
+    </body>
+</html>
